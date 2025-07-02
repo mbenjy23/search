@@ -11,14 +11,30 @@ fetch('coran.json')
     });
   });
 
+  function removeDiacritics(text) {
+    return text
+      .normalize("NFD")
+      .replace(/[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED]/g, '') // chakl
+      .replace(/ٱ/g, 'ا')      // alif wasl
+      .replace(/ـٰ/g, '')      // madd avec tatweel
+      .replace(/ـ/g, '');      // tatweel seul
+  }
+  
+  
+  
+
 function displayVerses(searchTerm) {
   const results = document.getElementById('results');
   results.innerHTML = '';
 
+  const normalizedSearch = removeDiacritics(searchTerm);
+  
   for (const sourate in coran) {
     for (const verset in coran[sourate]) {
       const entry = coran[sourate][verset];
-      if (!searchTerm || entry.ar.includes(searchTerm)) {
+      const normalizedText = removeDiacritics(entry.ar);
+
+      if (!normalizedSearch || normalizedText.includes(normalizedSearch)) {
         const div = document.createElement('div');
         div.className = 'verse';
         div.innerHTML = `
