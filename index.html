@@ -6,33 +6,51 @@
   <style>
     body {
       font-family: sans-serif;
-      padding: 20px;
+      padding: 0;
+      margin: 0;
     }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1.2em;
+      box-sizing: border-box;
+    }
+
     .verse {
-      margin-bottom: 20px;
+      margin: 20px;
       padding: 10px;
       border-bottom: 1px solid #ccc;
     }
+
     .ar {
       font-size: 1.5em;
       direction: rtl;
       text-align: right;
     }
+
     .fr {
       font-size: 1em;
       color: #555;
     }
-    input {
-      width: 100%;
-      padding: 10px;
-      font-size: 1.2em;
-      margin-bottom: 20px;
-    }
   </style>
 </head>
 <body>
-  <h1>🔍 Recherche dans le Coran</h1>
-  <input type="text" id="searchInput" placeholder="Tape un mot arabe, ex: صلاة">
+
+  <header>
+    <h2>🔍 Recherche dans le Coran</h2>
+    <input type="text" id="searchInput" placeholder="Tape un mot arabe, ex: صلاة">
+  </header>
+
   <div id="results"></div>
 
   <script src="script.js"></script>
