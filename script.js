@@ -4,20 +4,21 @@ fetch('coran.json')
   .then(res => res.json())
   .then(data => {
     coran = data;
-    renderVerses('');
+    displayVerses('');
     document.getElementById('searchInput').addEventListener('input', (e) => {
-      renderVerses(e.target.value.trim());
+      const term = e.target.value.trim();
+      displayVerses(term);
     });
   });
 
-function renderVerses(searchTerm) {
-  const resultsDiv = document.getElementById('results');
-  resultsDiv.innerHTML = '';
+function displayVerses(searchTerm) {
+  const results = document.getElementById('results');
+  results.innerHTML = '';
 
   for (const sourate in coran) {
     for (const verset in coran[sourate]) {
       const entry = coran[sourate][verset];
-      if (searchTerm === '' || entry.ar.includes(searchTerm)) {
+      if (!searchTerm || entry.ar.includes(searchTerm)) {
         const div = document.createElement('div');
         div.className = 'verse';
         div.innerHTML = `
@@ -25,7 +26,7 @@ function renderVerses(searchTerm) {
           <div class="ar">${entry.ar}</div>
           <div class="fr">${entry.fr}</div>
         `;
-        resultsDiv.appendChild(div);
+        results.appendChild(div);
       }
     }
   }
