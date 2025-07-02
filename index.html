@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Recherche Coran</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background-color: #fff;
+      padding: 10px 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      z-index: 10;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1.1em;
+      box-sizing: border-box;
+    }
+
+    .verse {
+      padding: 15px 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .ar {
+      font-size: 1.5em;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .fr {
+      font-size: 1em;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h2>🔍 Recherche dans le Coran</h2>
+    <input type="text" id="searchInput" placeholder="Tape un mot arabe, ex: صلاة">
+  </header>
+
+  <div id="results"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
