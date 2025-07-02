@@ -4,6 +4,7 @@ fetch('coran.json')
   .then(res => res.json())
   .then(data => {
     coran = data;
+    displayAllVerses();
     document.getElementById('searchInput').addEventListener('input', handleSearch);
   });
 
@@ -12,12 +13,10 @@ function handleSearch() {
   const resultsDiv = document.getElementById('results');
   resultsDiv.innerHTML = '';
 
-  if (searchTerm.length < 2) return;
-
   for (const sourate in coran) {
     for (const verset in coran[sourate]) {
       const entry = coran[sourate][verset];
-      if (entry.ar.includes(searchTerm)) {
+      if (searchTerm === '' || entry.ar.includes(searchTerm)) {
         const div = document.createElement('div');
         div.className = 'verse';
         div.innerHTML = `
@@ -29,4 +28,8 @@ function handleSearch() {
       }
     }
   }
+}
+
+function displayAllVerses() {
+  handleSearch(); // afficher tous les versets sans filtre
 }
