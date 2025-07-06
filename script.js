@@ -36,8 +36,8 @@ function displayVerses(searchTerm) {
       const entry = coran[sourate][verset];
       const normalizedText = removeDiacritics(entry.ar);
       console.log("Texte normalisé :", removeDiacritics(entry.ar));
-console.log("Recherche normalisée :", removeDiacritics(searchTerm));
-
+      console.log("Recherche normalisée :", removeDiacritics(searchTerm));
+      
 
       if (!normalizedSearch || normalizedText.includes(normalizedSearch)) {
         const div = document.createElement('div');
