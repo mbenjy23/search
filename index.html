@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Recherche bbCoran</title>
+  <title>Recherche Coran</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -24,7 +24,7 @@
     input {
       width: 100%;
       padding: 20px;
-      font-size: 2em;
+      font-size: 1.5em;
       box-sizing: border-box;
     }
 
@@ -55,9 +55,16 @@
 <body>
 
   <header>
-    <h2>🔍 Recherche dans le Coran</h2>
-    <input type="text" id="searchInput" placeholder="Tape un mot arabe, ex: صلاة">
+    <h2>🔍 Rechercher</h2>
+    <div style="display:flex; gap: 10px;">
+      <input type="text" id="searchInput" placeholder="Tape un mot en arabe" style="flex:1;">
+      <button style="padding: 1px 20px; background-color: rgb(54, 54, 174); color: white" id="searchBtn">OK</button>
+    </div>
+
   </header>
+  <div id="loader" style="text-align:center; font-size:1.5em; padding:2em;">
+    📖 Chargement du Coran...
+  </div>
 
   <div id="results"></div>
 

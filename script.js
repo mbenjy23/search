@@ -27,7 +27,7 @@ Promise.all([
   });
 
   coran = result;
-  console.log("coran", coran);
+  document.getElementById('loader').style.display = 'none';
 
   displayVerses('');
   document.getElementById('searchInput').addEventListener('input', (e) => {
